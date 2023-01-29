@@ -313,7 +313,7 @@ jobs:
           echo -e "[Desktop Entry]\nName=Macast\nComment=DLNA Media Renderer\nTryExec=mpv\nExec=/usr/bin/macast\nIcon=/usr/share/icons/hicolor/128x128/apps/macast.png\nTerminal=false\nType=Application\nCategories=AudioVideo;Audio;Video;Player;TV;" > dist/usr/share/applications/macast.desktop
           cp app/Macast dist/usr/bin/macast
           cp macast/assets/icon.png dist/usr/share/icons/hicolor/128x128/apps/macast.png
-          dpkg -b dist $DIST_ARMV8_DEB
+          dpkg-deb -Zxz -b dist $DIST_ARMV8_DEB
           echo "::set-output name=status::success"
 
       - name: Upload dist linux
